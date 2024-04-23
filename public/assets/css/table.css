@@ -1,0 +1,29 @@
+.table1 {
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: .8em;
+  vertical-align: middle;
+  border-top: 0;
+  border-bottom-width: 1px;
+}
+
+.table1 th {
+  border:  1px solid #dee2e6;
+  padding: 8px 8px;
+  border-bottom-width: 1px;
+  margin-left: 0.325rem;
+  background-color: #FFF;
+  height: 20px;
+  vertical-align: middle;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: #343a40;
+  text-transform: capitalize;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+}
+
+.table1 td {
+  border:  1px solid #dee2e6;
+  padding: 8px 8px;
+}
