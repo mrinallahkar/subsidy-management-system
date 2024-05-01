@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy to Staging') {
             steps {
-                echo ${WORKSPACE}
+                echo "${WORKSPACE}"
                 
             }
         }
