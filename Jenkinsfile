@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy to Staging') {
             steps {
-                sh 'scp -r ${WORKSPACE}/* nedfistaging@144.24.140.152:/var/www/html/subsidy-management-system/'
+                sh 'copy ${WORKSPACE}/* c:\test\'
             }
         }
         stage('Deploy to Production') {
