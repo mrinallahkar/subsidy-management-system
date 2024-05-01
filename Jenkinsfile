@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy to Staging') {
             steps {
-                sh 'copy ${WORKSPACE}/* c:\test\'
+                sh "copy ${WORKSPACE}/* 'C:\test\'"
             }
         }
         stage('Deploy to Production') {
