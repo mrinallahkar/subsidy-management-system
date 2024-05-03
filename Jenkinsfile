@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy to Staging') {
             steps {
-                echo "scp -r ${WORKSPACE}/* ubuntu@10.0.0.65:/var/www/html/test/"		       
+                sh "scp -r ${WORKSPACE}/* ubuntu@10.0.0.65:/var/www/html/test/"		       
             }
         }
         stage('Deploy to Production') {
