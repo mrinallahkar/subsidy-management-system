@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy to Staging') {
             steps {
-                sh 'ls -l'
+                sh "ssh ubuntu@10.0.0.108"		       
             }
         }
         stage('Deploy to Production') {
