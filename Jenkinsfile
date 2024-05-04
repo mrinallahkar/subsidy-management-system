@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy to Staging') {
             steps {
-                sh "scp -r ${WORKSPACE}/* nedfistaging@10.0.0.108:/home/ubuntu/test/"		       
+                sh "scp -r ${WORKSPACE}/* ubuntu@10.0.0.108:/home/ubuntu/test/"		       
             }
         }
         stage('Deploy to Production') {
