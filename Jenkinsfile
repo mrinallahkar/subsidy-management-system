@@ -8,10 +8,8 @@ pipeline {
             }
         }
         stage('Test') {
-            steps {
-                input{
-                    message "Is software testing is passed?"
-                }
+            input 'IS software testing passed?'
+            steps {                
                 echo 'Testing..'
             }
         }
