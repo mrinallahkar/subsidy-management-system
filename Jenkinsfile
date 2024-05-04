@@ -8,9 +8,6 @@ pipeline {
             }
         }
         stage('Test') {
-            input{
-                message "Do you want to proceed for production deployment?"
-            }
                 steps {                
                     echo 'Testing..'
                 }
@@ -22,9 +19,6 @@ pipeline {
         }
         stage('Deploy to Production') {
             steps {
-                input{
-                    message "Do you want to proceed for production deployment?"
-                }
                 sh "ssh nedfistaging@10.0.0.65"
                 sh "rsync -azvh /var/www/html/test/ ubuntu@10.0.0.108:/var/www/html/subsidy-management-system/"
             }
