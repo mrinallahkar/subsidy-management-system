@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy to Staging') {
             steps {
-                sh "ssh ubuntu@10.0.0.108"		       
+                sh "scp -r ${WORKSPACE}/* ubuntu@10.0.0.108:/home/ubuntu/test/"		       
             }
         }
         stage('Deploy to Production') {
