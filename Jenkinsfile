@@ -8,10 +8,12 @@ pipeline {
             }
         }
         stage('Test') {
-            input 'IS software testing passed?'
-            steps {                
-                echo 'Testing..'
+            input{
+                message "Do you want to proceed for production deployment?"
             }
+                steps {                
+                    echo 'Testing..'
+                }
         }
         stage('Deploy to Staging') {
             steps {
