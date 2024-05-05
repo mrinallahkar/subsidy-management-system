@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy to Staging') {
             steps {
-                sshagent(credentials: ['ecaa20c1-aacb-4788-9a98-e5e8d784b765']) {
+                sshagent(credentials: ['nedfi-staging']) {
                     sh '''
                     scp -r ${WORKSPACE}/* nedfistaging@144.24.140.152:/var/www/html/test/
                     '''
