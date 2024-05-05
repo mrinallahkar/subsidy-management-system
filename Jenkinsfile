@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sshagent(['staging']) {
                     sh '''
-                    scp -r ${WORKSPACE}/* nedfistaging@144.24.140.152:/var/www/html/test/
+                    ssh -tt -o StrictHostKeyChecking=no nedfistaging@144.24.140.152 ls
                     '''
                 }
             }
