@@ -17,7 +17,7 @@ pipeline {
                 sshagent(['ecaa20c1-aacb-4788-9a98-e5e8d784b765']) {
                     sh '''
 
-                    scp -r ${WORKSPACE}/* nedfistaging@10.0.0.65:/var/www/html/test/
+                    scp -r ${WORKSPACE}/* nedfistaging@144.24.140.152:/var/www/html/test/
 
                     '''
                 }       
