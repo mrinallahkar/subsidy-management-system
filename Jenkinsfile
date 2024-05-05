@@ -14,9 +14,9 @@ pipeline {
         }
         stage('Deploy to Staging') {
             steps {
-                sshagent(['staging']) {
+                sshagent(['production']) {
                     sh '''
-                    scp -r ${WORKSPACE}/* nedfistaging@144.24.140.152:/var/www/html/test/
+                    scp -r ${WORKSPACE}/* ubuntu@68.233.117.222:/home/ubuntu/test/
                     '''
                 }
             }
