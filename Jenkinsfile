@@ -14,13 +14,18 @@ pipeline {
         }
         stage('Deploy to Staging') {
             steps {
-                sh "scp -r ${WORKSPACE}/* nedfistaging@10.0.0.65:/var/www/html/test/"		       
+                sshagent(['ecaa20c1-aacb-4788-9a98-e5e8d784b765']) {
+                    sh '''
+
+                    scp -r ${WORKSPACE}/* nedfistaging@10.0.0.65:/var/www/html/test/
+
+                    '''
+                }       
             }
         }
         stage('Deploy to Production') {
             steps {
-                sh "ssh nedfistaging@10.0.0.65"
-                sh "rsync -azvh /var/www/html/test/ ubuntu@10.0.0.108:/var/www/html/subsidy-management-system/"
+               echo 'Deploying in production..'
             }
         }
     }
