@@ -14,9 +14,9 @@ pipeline {
         }
         stage('Deploy to Staging') {
             steps {
-                sshagent(['staging']) {
+                sshagent(['production']) {
                     sh '''
-                    ssh -tt -o StrictHostKeyChecking=no nedfistaging@144.24.140.152 ls
+                    ssh -tt -o StrictHostKeyChecking=no ubuntu@68.233.117.222 ls
                     '''
                 }
             }
