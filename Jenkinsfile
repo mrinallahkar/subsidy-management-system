@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Deploy to Staging') {
             steps {
-                sshagent(['production']) {
+                withCredentials([sshUserPrivateKey(credentialsId: 'production', keyFileVariable: 'production', usernameVariable: 'ubuntu')]) {
                     sh '''
                     scp -r ${WORKSPACE}/* ubuntu@68.233.117.222:/home/ubuntu/test/
                     '''
