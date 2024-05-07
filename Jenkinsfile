@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sshagent(['staging']) {
                     sh '''
-                    ssh staging@144.24.134.21 ls
+                    ssh -tt -o StrictHostKeyChecking=no staging@144.24.134.21 ls
                     '''
                 }
                 
