@@ -16,6 +16,12 @@ pipeline {
             steps {
                 sshagent(['staging']) {
                     sh '''
+                    ssh staging@144.24.134.21 ls
+                    '''
+                }
+                
+                sshagent(['production']) {
+                    sh '''
                     scp -r /var/lib/jenkins/workspace/NEDFi-CICD-SMS/* production@68.233.117.222:/var/www/html/subsidy-management-system/
                     '''
                 }
