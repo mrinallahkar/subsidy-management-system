@@ -23,8 +23,8 @@ pipeline {
         }
         stage('Deploy to Production') {
             steps {
-	                input message: 'Do you want to approve the deployment?', ok: 'Yes'	                
-			        echo "Initiating deployment"
+	              input message: 'Do you want to approve the deployment?', ok: 'Yes'	                
+		      echo "Initiating deployment to production"
             }
         }
     }
