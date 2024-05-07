@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sshagent(['staging']) {
                     sh '''
-                    ssh -tt -o StrictHostKeyChecking=no production@68.233.117.222 ls
+                    scp -r {Workspaces}/* StrictHostKeyChecking=no production@68.233.117.222:/var/www/html/subsidy-management-system/
                     '''
                 }
             }
