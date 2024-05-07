@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sshagent(['staging']) {
                     sh '''
-                    scp -r /var/lib/jenkins/workspace/NEDFi-CICD-SMS/* StrictHostKeyChecking=no production@68.233.117.222:/var/www/html/subsidy-management-system/
+                    scp -r /var/lib/jenkins/workspace/NEDFi-CICD-SMS/* production@68.233.117.222:/var/www/html/subsidy-management-system/
                     '''
                 }
             }
