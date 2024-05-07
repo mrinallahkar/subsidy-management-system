@@ -16,13 +16,13 @@ pipeline {
             steps {
                 sshagent(['staging']) {
                     sh '''
-                    scp -r /var/lib/jenkins/workspace/NEDFi-CICD-SMS/* staging@144.24.134.21:/var/www/html/subsidy/
+                    scp -r ${workspace}/* staging@144.24.134.21:/var/www/html/subsidy/
                     '''
                 }
                 
                 sshagent(['production']) {
                     sh '''
-                    scp -r /var/lib/jenkins/workspace/NEDFi-CICD-SMS/* production@68.233.117.222:/var/www/html/subsidy-management-system/
+                    scp -r ${workspace}/* production@68.233.117.222:/var/www/html/subsidy-management-system/
                     '''
                 }
             }
