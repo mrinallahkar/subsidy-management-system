@@ -23,8 +23,17 @@ pipeline {
         }
         stage('Deploy to Production') {
             steps {
-	              input message: 'Do you want to approve the deployment?', ok: 'Yes'	                
-		      echo "Initiating deployment to production"
+                 emailext body: '''Dear Sir/Madam
+                 Greetings for the day.
+                 This is a notification for code deployment on production environment. Please check and take necessary action.
+                 
+                 Regards
+                 NEDFi IT''', 
+                 subject: 'NEDFi CICD (SMS) - Waiting for Production Deployment', 
+                 to: 'mrinallahkar85@gmail.com'
+	             
+                 input message: 'Do you want to approve the deployment?', ok: 'Yes'	                
+		         echo "Initiating deployment to production"
             }
         }
     }
