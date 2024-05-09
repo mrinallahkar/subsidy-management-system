@@ -18,17 +18,16 @@ pipeline {
                     sh '''
                     scp -r ${WORKSPACE}/* staging@144.24.134.21:/var/www/html/subsidy/
                     '''
-                }
-                
+                }                                
+            }
+        }
+        stage('Deploy to Production') {
+            steps {
                 sshagent(['production']) {
                     sh '''
                     scp -r ${WORKSPACE}/* production@68.233.117.222:/var/www/html/subsidy-management-system/
                     '''
                 }
-            }
-        }
-        stage('Deploy to Production') {
-            steps {
                  emailext body: '''Dear Sir/Madam
                  Greetings for the day.
                  This is a notification for code deployment on production environment. Please check and take necessary action.
