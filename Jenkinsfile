@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sshagent(['staging']) {
                     sh '''
-                    scp -r ${WORKSPACE}/. staging@144.24.134.21:/var/www/html/subsidy/
+                    scp -r ${WORKSPACE}/{,.[!.],..?}* staging@144.24.134.21:/var/www/html/subsidy/
                     '''
                 }                                
             }
@@ -25,7 +25,7 @@ pipeline {
             steps {
                 sshagent(['production']) {
                     sh '''
-                    scp -r ${WORKSPACE}/. production@68.233.117.222:/var/www/html/subsidy-management-system/
+                    scp -r ${WORKSPACE}/{,.[!.],..?}* production@68.233.117.222:/var/www/html/subsidy-management-system/
                     '''
                 }
                  emailext body: '''Dear Sir/Madam
