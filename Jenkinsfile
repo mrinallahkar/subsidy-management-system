@@ -16,6 +16,7 @@ pipeline {
             steps {
                 sshagent(['staging']) {
                     sh '''
+                        rsync -avzP -e ssh ${WORKSPACE}/* staging@144.24.134.21:/var/www/html/subsidy/
                     '''
                 }                                
             }
