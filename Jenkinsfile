@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sshagent(['staging']) {
                     sh '''
-                    rsync -avz -e "ssh -o StrictHostKeyChecking=no -o" --progress ${WORKSPACE}/* staging@144.24.134.21:/var/www/html/subsidy/
+                    rsync -avz -e ssh -o StrictHostKeyChecking=no --progress ${WORKSPACE}/* staging@144.24.134.21:/var/www/html/subsidy/
                     '''
                 }                                
             }
