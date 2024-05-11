@@ -27,7 +27,7 @@ pipeline {
                     sh '''
                         ssh staging@10.0.0.254
                         rsync -avzP -e /var/www/html/subsidy/ ssh production@10.0.0.108:/var/www/html/subsidy-management-system/
-                                      
+                    '''
                 }
                  emailext body: '''Dear Sir/Madam
                  Greetings for the day.
