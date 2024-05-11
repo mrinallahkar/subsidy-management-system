@@ -26,7 +26,7 @@ pipeline {
                 sshagent(['production']) {
                     sh '''
                         ssh staging@144.24.134.21
-                        scp -r /var/www/html/subsidy/ ssh production@68.233.117.222:/var/www/html/subsidy-management-system/
+                        scp -r /var/www/html/subsidy/* production@68.233.117.222:/var/www/html/subsidy-management-system/
                     '''
                 }
                  emailext body: '''Dear Sir/Madam
