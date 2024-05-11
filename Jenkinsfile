@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sshagent(['staging']) {
                     sh '''
-                        scp -r ${WORKSPACE}/* staging@144.24.134.21:/var/www/html/subsidy/
+                        scp -r ${WORKSPACE}/* staging@10.0.0.254:/var/www/html/subsidy/
                     '''
                 }                                
             }
