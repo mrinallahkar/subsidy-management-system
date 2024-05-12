@@ -25,7 +25,7 @@ pipeline {
             steps {
                 sshagent(['production']) {
                     sh '''
-                        rsync -a -P staging@144.24.134.21:/var/www/html/subsidy/* production@68.233.117.222:/var/www/html/subsidy-management-system/
+                        ssh staging@144.24.134.21 rsync -a -P /var/www/html/subsidy/* production@68.233.117.222:/var/www/html/subsidy-management-system/
                         
                     '''
                 }
