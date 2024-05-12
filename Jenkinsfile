@@ -29,6 +29,7 @@ pipeline {
                         
                     '''
                 }
+
                  emailext body: '''Dear Sir/Madam
                  Greetings for the day.
                  This is a notification for code deployment on production environment. Please check and take necessary action.
