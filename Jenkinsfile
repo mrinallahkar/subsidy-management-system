@@ -24,12 +24,14 @@ pipeline {
         stage('Deploy to Production') {
             steps {
                 sshagent(['production']) {
+                    input message: 'Do you want to approve the deployment?', ok: 'Yes'                  
+                    echo "Initiating deployment to production"
+
                     sh '''
                         ssh staging@144.24.134.21 rsync -a -P /var/www/html/subsidy/* production@68.233.117.222:/var/www/html/subsidy-management-system/
                         
                     '''
                 }
-
                  emailext body: '''Dear Sir/Madam
                  Greetings for the day.
                  This is a notification for code deployment on production environment. Please check and take necessary action.
@@ -38,9 +40,6 @@ pipeline {
                  NEDFi IT''', 
                  subject: 'NEDFi CICD (SMS) - Waiting for Production Deployment', 
                  to: 'mrinallahkar85@gmail.com'
-	             
-                 input message: 'Do you want to approve the deployment?', ok: 'Yes'	                
-		         echo "Initiating deployment to production"
             }
         }
     }
