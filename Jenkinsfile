@@ -10,10 +10,16 @@ pipeline {
         stage('Test') {
                 steps {                
                     echo 'Testing..'
-                    def scannerHome = tool 'SonarScanner'
-                    withSonarQubeEnv() {
-                        sh "${scannerHome}/bin/sonar-scanner"
-                    }
+                        dir("${WORKSPACE}"){
+                        // Run SonarQube analysis for Python
+                            script {
+                                def scannerHome = tool name: 'scanner-name', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+                                withSonarQubeEnv('sonar') {
+                                    sh "echo $pwd"
+                                    sh "${scannerHome}/bin/sonar-scanner"
+                                }
+                            }
+                        }
                 }
         }
         stage('Deploy to Staging') {
