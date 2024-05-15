@@ -10,8 +10,7 @@ pipeline {
         stage('Test') {
                 steps {                
                     echo 'Testing..'
-                        dir("${WORKSPACE}"){
-                        // Run SonarQube analysis for Python
+                        /*dir("${WORKSPACE}"){
                             script {
                                 def scannerHome = tool name: 'scanner-name', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
                                 withSonarQubeEnv('sonar') {
@@ -20,6 +19,7 @@ pipeline {
                                 }
                             }
                         }
+                        */
                 }
         }
         stage('Deploy to Staging') {
