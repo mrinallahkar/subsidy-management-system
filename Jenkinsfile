@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sshagent(['staging']) {
                     sh '''
-                        rsync -a -P ${WORKSPACE}/* --exclude={.env, Jenkinsfile} staging@144.24.134.21:/var/www/html/subsidy/
+                        rsync -a -P ${WORKSPACE}/* --exclude={.env} staging@144.24.134.21:/var/www/html/subsidy/
                     '''
                 }                                
             }
@@ -28,7 +28,7 @@ pipeline {
                     echo "Initiating deployment to production"
 
                     sh '''
-                        ssh staging@144.24.134.21 rsync -a -P --exclude={.env, Jenkinsfile} /var/www/html/subsidy/* production@68.233.117.222:/var/www/html/subsidy-management-system/
+                        ssh staging@144.24.134.21 rsync -a -P --exclude={.env} /var/www/html/subsidy/* production@68.233.117.222:/var/www/html/subsidy-management-system/
                         
                     '''
                 }
