@@ -31,8 +31,7 @@ pipeline {
                     '''
                     sh '''
                         ssh ubuntu@144.24.134.21 
-                        sudo su
-                        chmod 777 -R /var/www/html/subsidy/
+                        ls
                     '''
                 }                                
             }
