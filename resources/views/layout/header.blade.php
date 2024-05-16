@@ -13,7 +13,7 @@
         </button>
         <ul class="navbar-nav navbar-nav-left header-links">
             <li class="nav-item dropdown d-none d-lg-flex">
-                <a class="nav-link px-0" aria-expanded="false"><span style="font-size:large">School Management System</span></a>
+                <a class="nav-link px-0" aria-expanded="false"><span style="font-size:large">Subsidy Management System</span></a>
             </li>
         </ul>
         <ul class="navbar-nav navbar-nav-right">
