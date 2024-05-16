@@ -28,13 +28,7 @@ pipeline {
                 sshagent(['staging']) {
                     sh '''
                         rsync -a -P ${WORKSPACE}/* --exclude={.env} staging@144.24.134.21:/var/www/html/subsidy/
-                    '''
-                    sh '''
-                        ssh ubuntu@144.24.134.21 
-                        ls
-                        sudo su
-                        ls
-                    '''
+                    '''                    
                 }                                
             }
         }
