@@ -8,6 +8,9 @@ pipeline {
 	   }
         }
         stage('Test') {
+            steps {
+                echo 'Testing..'               
+            }
                 /*environment {
                         scannerHome = tool 'SonarQubeScanner'
                 }    
