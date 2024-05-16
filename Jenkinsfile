@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..' 
+                echo 'Testing..'; 
 
                 environment {
                         scannerHome = tool 'SonarQubeScanner'
@@ -19,7 +19,7 @@ pipeline {
                         sh "${scannerHome}/bin/sonar-scanner --version"
                         }        
                     }   
-                     
+
             }
                 
         }
