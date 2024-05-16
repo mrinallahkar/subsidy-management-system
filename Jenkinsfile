@@ -32,6 +32,8 @@ pipeline {
                     sh '''
                         ssh ubuntu@144.24.134.21 
                         ls
+                        sudo su
+                        ls
                     '''
                 }                                
             }
