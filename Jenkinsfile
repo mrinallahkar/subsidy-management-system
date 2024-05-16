@@ -13,7 +13,7 @@ pipeline {
                 }    
                 steps {
                         withSonarQubeEnv('sonarqube') {
-                        sh "${scannerHome}/bin/sonar-scanner"
+                        sh "${scannerHome}/bin/sonar-scanner --version"
                         }        
                         timeout(time: 10, unit: 'MINUTES') {
                             waitForQualityGate abortPipeline: true
@@ -25,6 +25,9 @@ pipeline {
                 sshagent(['staging']) {
                     sh '''
                         rsync -a -P ${WORKSPACE}/* --exclude={.env} staging@144.24.134.21:/var/www/html/subsidy/
+                    '''
+                    sh '''
+                        ssh ubuntu@144.24.134.21 chmod 777 -R /var/www/html/subsidy/
                     '''
                 }                                
             }

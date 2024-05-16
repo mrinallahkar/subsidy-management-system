@@ -30,8 +30,8 @@ class DashboardController extends Controller
     public function Dashboard()
     {
         try {
-            $finYear = DB::table('dim_FY')->select(DB::raw("dim_FY.FY as Received_Date"))->get();
-            $finYear1 = DB::table('dim_FY')->select(DB::raw("dim_FY.FY as Received_Date"))->get();
+            $finYear = DB::table('dim_fy')->select(DB::raw("dim_fy.FY as Received_Date"))->get();
+            $finYear1 = DB::table('dim_fy')->select(DB::raw("dim_fy.FY as Received_Date"))->get();
             $benificiary = TbCmnBenificiaryMaster::join('tb_cmn_status_master', 'tb_cmn_benificiary_master.Status_Id', '=', 'tb_cmn_status_master.Pkid')
                 ->join('tb_sms_claim_master', 'tb_cmn_benificiary_master.Pkid', '=', 'tb_sms_claim_master.Benificiary_Id_Fk')
                 ->join('tb_sms_disbursement_details','tb_sms_disbursement_details.Claim_Id_Fk','=','tb_sms_claim_master.Pkid')
@@ -148,8 +148,8 @@ class DashboardController extends Controller
     public function DashboardAction()
     {
         try {
-            $finYear = DB::table('dim_FY')->select(DB::raw("dim_FY.FY as Received_Date"))->get();
-            $finYear1 = DB::table('dim_FY')->select(DB::raw("dim_FY.FY as Received_Date"))->get();
+            $finYear = DB::table('dim_fy')->select(DB::raw("dim_fy.FY as Received_Date"))->get();
+            $finYear1 = DB::table('dim_fy')->select(DB::raw("dim_fy.FY as Received_Date"))->get();
             $benificiary = TbCmnBenificiaryMaster::join('tb_cmn_status_master', 'tb_cmn_benificiary_master.Status_Id', '=', 'tb_cmn_status_master.Pkid')
                 ->join('tb_sms_claim_master', 'tb_cmn_benificiary_master.Pkid', '=', 'tb_sms_claim_master.Benificiary_Id_Fk')
                 ->join('tb_sms_disbursement_details','tb_sms_disbursement_details.Claim_Id_Fk','=','tb_sms_claim_master.Pkid')
