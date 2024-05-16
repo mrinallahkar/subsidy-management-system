@@ -9,19 +9,19 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'               
-            }
-                /*environment {
+                echo 'Testing..' 
+
+                environment {
                         scannerHome = tool 'SonarQubeScanner'
                 }    
                 steps {
-                        withSonarQubeEnv('sonarqube') {
+                        withSonarQubeEnv('SonarQube') {
                         sh "${scannerHome}/bin/sonar-scanner --version"
                         }        
-                        timeout(time: 10, unit: 'MINUTES') {
-                            waitForQualityGate abortPipeline: true
-                        }
-                    }*/
+                    }   
+                     
+            }
+                
         }
         stage('Deploy to Staging') {
             steps {
