@@ -30,7 +30,9 @@ pipeline {
                         rsync -a -P ${WORKSPACE}/* --exclude={.env} staging@144.24.134.21:/var/www/html/subsidy/
                     '''
                     sh '''
-                        ssh ubuntu@144.24.134.21 chmod 777 -R /var/www/html/subsidy/
+                        ssh ubuntu@144.24.134.21 
+                        sudo su
+                        chmod 777 -R /var/www/html/subsidy/
                     '''
                 }                                
             }
