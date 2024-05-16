@@ -8,19 +8,17 @@ pipeline {
 	   }
         }
         stage('Test') {
-                steps {                
-                    echo 'Testing..'
-                        /*dir("${WORKSPACE}"){
-                            script {
-                                def scannerHome = tool name: 'scanner-name', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-                                withSonarQubeEnv('sonar') {
-                                    sh "echo $pwd"
-                                    sh "${scannerHome}/bin/sonar-scanner"
-                                }
-                            }
+                environment {
+                        scannerHome = tool 'SonarQubeScanner'
+                }    
+                steps {
+                        withSonarQubeEnv('sonarqube') {
+                        sh "${scannerHome}/bin/sonar-scanner"
+                        }        
+                        timeout(time: 10, unit: 'MINUTES') {
+                            waitForQualityGate abortPipeline: true
                         }
-                        */
-                }
+                    }
         }
         stage('Deploy to Staging') {
             steps {
