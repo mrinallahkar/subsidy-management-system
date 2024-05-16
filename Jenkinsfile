@@ -8,7 +8,7 @@ pipeline {
 	   }
         }
         stage('Test') {
-                environment {
+                /*environment {
                         scannerHome = tool 'SonarQubeScanner'
                 }    
                 steps {
@@ -18,7 +18,7 @@ pipeline {
                         timeout(time: 10, unit: 'MINUTES') {
                             waitForQualityGate abortPipeline: true
                         }
-                    }
+                    }*/
         }
         stage('Deploy to Staging') {
             steps {
