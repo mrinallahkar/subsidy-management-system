@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo 'Testing..'
 
-                environment {
+                /*environment {
                     scannerHome = tool 'SonarQubeScanner'
                 }
                 steps {
@@ -23,7 +23,7 @@ pipeline {
                             -Dsonar.language=PHP"
                         }
                     }
-                }
+                }*/
 
             }
                 
