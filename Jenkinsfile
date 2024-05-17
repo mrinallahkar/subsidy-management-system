@@ -7,18 +7,24 @@ pipeline {
                 echo 'Building..'           	
 	   }
         }
-        stage('Test') {
+        stage('Code Inspeaction - SonarQube') {
             steps {
                 echo 'Testing..'; 
 
+
                 environment {
-                        scannerHome = tool 'SonarQubeScanner'
-                }    
+                    scannerHome = tool 'SonarQubeScanner'
+                }
                 steps {
+                    script {
                         withSonarQubeEnv('SonarQube') {
-                        sh "${scannerHome}/bin/sonar-scanner --version"
-                        }        
-                    }   
+                            sh "${scannerHome}/bin/sonar-scanner \
+                            -Dsonar.projectKey=nedfi-sms \
+                            -Dsonar.projectName=nedfi-sms \
+                            -Dsonar.language=PHP"
+                        }
+                    }
+                }
 
             }
                 
