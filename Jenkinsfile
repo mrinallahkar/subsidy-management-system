@@ -9,8 +9,7 @@ pipeline {
         }
         stage('Code Inspeaction - SonarQube') {
             steps {
-                echo 'Testing..'; 
-
+                echo 'Testing..'
 
                 environment {
                     scannerHome = tool 'SonarQubeScanner'
